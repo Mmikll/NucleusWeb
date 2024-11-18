@@ -43,6 +43,11 @@ img {
     width: 90%;
 }
 
+[class$="__heading"]{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
 /* --- HEADER ---*/
 
 .header{
@@ -59,7 +64,6 @@ img {
 }
 
 .header__heading{
-    text-align: center;
     font-size: 3rem;
 }
 
@@ -92,24 +96,181 @@ img {
     transition:  transform .3s ease-in;
 }
 
+.link--blanco{
+    color: var(--blanco);
+}
+
 .navegacion__link:hover{
     transform: scale(1.06);
 }
 
-/* --- NUCLEUS  ---*/
+/* --- WHAT IS NUCLEUS SECTION  ---*/
 .nucleus{
     margin-top: 3rem;
 }
 
-.nucleus__heading{
-    text-align: center;
-    margin-bottom: 5rem;
+.nucleus__grid{
+    display: flex;
+    flex-direction: column-reverse;
 }
+
+/* ---  LISTADO BLOCK---*/
+.listado__elemento{
+    background-color: var(--blanco);
+    box-shadow: 0px 0px 15px 3px rgb(0 0 0 / .15);
+    padding: 2rem;
+    margin-bottom: 5rem;
+    border-radius: 15px;
+    transition: transform .2s ease-in;
+    gap: 2rem;
+}
+
+.listado__elemento:hover{
+    transform: scale(1.05);
+}
+
+.listado__heading{
+    font-size: 3rem;
+    color: var(--primario);
+    margin: 0;
+}
+
+.listado__texto{
+    font-size: 2rem;
+    margin: 0;
+    text-wrap: pretty;
+    text-align: center;
+}
+
+.listado__numero{
+    font-size: 6rem;
+    margin: 0;
+    font-weight: 900;
+    color: var(--primario);
+    text-align: center;
+}
+
+/* --- SECURITY SECTION  ---*/
+
+.seguridad{
+    background-color: var(--primario);
+    padding: 20rem 0;
+    position: relative;
+    margin: 10rem 0;
+    /* transform: skewY(3deg); */
+    position: relative;
+    overflow: hidden;
+}
+
+.seguridad::before,
+.seguridad::after{
+    content: '';
+    height: 20rem;
+    width: 120%;
+    background-color: var(--blanco);
+    position: absolute;
+}
+
+.seguridad::before{
+    top: -10rem;
+    left: 0;
+    transform: rotate(3deg);
+}
+.seguridad::after{
+    bottom: -10rem;
+    left: 0;
+    transform: rotate(3deg);
+}  */
+
+.seguridad__contenedor{
+    transform: skewY(-3deg);
+}
+
+.seguridad__heading{
+    color: var(--blanco);
+}
+
+/* --- COMISIONES CONTENT ---*/
+
+.comisiones__texto{
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+/* --- TESTIMOPNIALS SECTION  ---*/
+
+.testimoniales{
+    background-color: var(--primario);
+    padding: 5rem 0;
+}
+
+.testimoniales__grid{
+    display: grid;
+    grid-row-start: 1fr;
+    gap: 4rem;
+}
+
+.testimoniales__heading{
+    margin-top: 0;
+    color: var(--blanco);
+}
+
+.testimonial{
+    background-color: var(--blanco);
+    padding: 2rem;
+    position: relative;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 150px 30px rgb(0 0 0 / .15);
+    transition: all .3s ease-in;
+}
+
+.testimonial:hover{
+    transform: scale(1.03);
+}
+
+.testimonial__texto{
+    padding-left: 4rem;
+}
+
+.testimonial__texto::before{
+    content:'';
+    background-image: url(../img/comilla.png);
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    background-position: center;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 3.5rem;
+    left: 2rem;
+}
+
+.testimonial__autor{
+    color: var(--primario);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* --- FOOTER SECTION ---*/
+
+.footer{
+    background-color: #5a30a0;
+    padding: 3rem 0;
+}
+
+.footer__logo{
+    width: 20rem;
+    margin: 0 auto 4rem auto;
+}
+
 
 
 /* --- MEDIAS QUERIES ---*/
 
 @media screen and (min-width: 768px) {
+
+    /* --- HEADER ---*/
     .header{
         background-size: 55rem;
     }
@@ -155,11 +316,80 @@ img {
     .navegacion__link{
         color: var(--blanco);
     }
+
+    /* --- WHAT IS NUCLEUS SECTION  ---*/
+
+    .nucleus__grid{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 5rem;
+        align-items: center;
+    }
+
+    /* --- SECURITY SECTION  ---*/
+
+    .seguridad__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        align-items: center;
+    }
+
+        /* --- COMISIONES SECTION  ---*/
+
+    .comisiones__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        align-items: flex-end;
+    }
+
+    .comisiones__texto{
+        text-align: left;
+    }
+
+    .elemento--2col{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .listado__numero{
+        /* flex-basis: 10rem; */
+        text-align: right;
+        font-size: 4rem;
+    }
+
+    /* --- TESTIMONIALS SECTION  ---*/
+
+    .testimoniales__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        align-items: center;
+    }
+
+    /* --- FOOTER SECTION  ---*/
+
+    .footer__grid{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer__logo{
+        margin: 0;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .header{
         background-size: 60rem;
+    }
+
+    .comisiones__grid{
+        align-items: center;
     }
 }
 
